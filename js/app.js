@@ -406,7 +406,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const wasHidden = document.querySelector('.app-body').classList.contains('show-edit');
         if (wasHidden) { document.querySelector('.app-body').classList.remove('show-edit'); document.querySelector('.app-body').classList.add('show-preview'); }
         
-        renderPreview();
         const element = document.getElementById('biodata-preview');
         const opt = {
             margin:       0,
@@ -431,7 +430,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const wasHidden = document.querySelector('.app-body').classList.contains('show-edit');
         if (wasHidden) { document.querySelector('.app-body').classList.remove('show-edit'); document.querySelector('.app-body').classList.add('show-preview'); }
         
-        renderPreview();
         const element = document.getElementById('biodata-preview');
         const wrapper = document.querySelector('.preview-wrapper');
         const origTransform = wrapper.style.transform;
