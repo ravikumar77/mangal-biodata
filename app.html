@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Biodata - Mangal Biodata V2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700;800&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/templates.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body class="app-body">
+    <nav class="navbar app-navbar">
+        <div class="container-fluid">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">✨</span>
+                Mangal Biodata
+            </a>
+            <div class="nav-actions">
+                <button id="btn-download-img" class="btn btn-secondary btn-sm">Download Image</button>
+                <button id="btn-download-pdf" class="btn btn-primary btn-sm">Download PDF</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="app-container">
+        <!-- Left Pane: Dynamic Form Editor -->
+        <div class="editor-pane">
+            <div class="editor-header">
+                <h2>Biodata Details</h2>
+                <p>Add, edit, or remove fields dynamically. Reorder them using the arrows.</p>
+            </div>
+
+            <div class="form-section">
+                <h3 class="section-toggle active">Theme & Template</h3>
+                <div class="section-content">
+                    <div class="theme-selector" id="theme-selector-container">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic Builder Root -->
+            <div id="builder-root" class="builder-root"></div>
+            
+            <div class="builder-actions" style="padding: 24px; text-align: center;">
+                 <button type="button" id="btn-create-biodata" class="btn btn-primary" style="width: 100%;">Create / Update Preview</button>
+                 <button type="button" id="btn-reset-form" class="btn btn-secondary btn-sm" style="margin-top: 12px; width: 100%;">Reset Form</button>
+            </div>
+        </div>
+
+        <!-- Right Pane: Live Preview -->
+        <div class="preview-pane">
+            <div class="preview-wrapper">
+                <div id="biodata-preview" class="biodata-document theme-classic">
+                    
+                    <div class="doc-header">
+                        <div class="ganesha-icon" id="preview-god-icon"></div>
+                        <h2 class="shree-ganesh" id="preview-god-text">|| Shree Ganeshay Namah ||</h2>
+                        <h1 class="biodata-title">Biodata</h1>
+                    </div>
+
+                    <div class="doc-body">
+                        <div class="bio-main-header">
+                            <div class="bio-photo-container" style="display: none;">
+                                <img id="preview-photo" src="" alt="Profile Photo">
+                            </div>
+                            <h2 id="preview-title-name" class="bio-name"></h2>
+                        </div>
+
+                        <!-- Dynamic Preview Container -->
+                        <div id="preview-sections-container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- html2canvas for image download -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

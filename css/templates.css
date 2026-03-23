@@ -1,0 +1,266 @@
+/* ===== TEMPLATE BASE ===== */
+.biodata-document {
+    font-family: var(--font-traditional);
+    transition: all 0.3s ease;
+}
+
+.doc-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.ganesha-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ganesha-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.shree-ganesh {
+    font-family: var(--font-hindi), serif;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.biodata-title {
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.bio-main-header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 20px;
+}
+
+.bio-photo-container {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.bio-photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.bio-name {
+    font-size: 26px;
+}
+
+/* Sections */
+.bio-section {
+    margin-bottom: 25px;
+}
+
+.bio-section h3 {
+    font-size: 18px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 12px;
+}
+
+.bio-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.bio-table td {
+    padding: 6px 0;
+    vertical-align: top;
+    font-family: var(--font-body);
+    font-size: 15px;
+}
+
+.bio-table .label-cell {
+    width: 35%;
+    font-weight: 600;
+    padding-right: 15px;
+}
+.bio-table .label-cell::after {
+    content: ':';
+    float: right;
+}
+
+.bio-table .val-cell {
+    width: 65%;
+}
+
+
+/* =========================================
+   THEME: CLASSIC RED
+   ========================================= */
+.theme-classic {
+    border: 8px solid #d32f2f;
+    border-radius: 4px;
+    background-color: #fff;
+    outline: 2px solid #d32f2f;
+    outline-offset: -12px;
+}
+.theme-classic, .theme-classic .val-cell { color: #333; }
+.theme-classic .shree-ganesh,
+.theme-classic .biodata-title,
+.theme-classic .bio-name,
+.theme-classic .bio-section h3,
+.theme-classic .label-cell { color: #d32f2f; }
+.theme-classic .bio-section h3 { border-bottom-color: #d32f2f; }
+
+/* =========================================
+   THEME: ELEGANT GOLD
+   ========================================= */
+.theme-elegant {
+    border: 12px solid #b8860b;
+    border-style: double;
+    background-color: #fffdf5;
+}
+.theme-elegant, .theme-elegant .val-cell { color: #443; }
+.theme-elegant .shree-ganesh,
+.theme-elegant .biodata-title,
+.theme-elegant .bio-name,
+.theme-elegant .bio-section h3,
+.theme-elegant .label-cell { color: #8b6508; font-family: 'Playfair Display', serif; }
+.theme-elegant .bio-section h3 { border-bottom: 2px dashed #b8860b; text-align: center; }
+.theme-elegant .bio-main-header { border-bottom: 1px solid #b8860b; }
+
+/* =========================================
+   THEME: FLORAL BLOOM
+   ========================================= */
+.theme-floral {
+    border: none;
+    background-color: #fcf6f8;
+    position: relative;
+    overflow: hidden;
+}
+.theme-floral::before, .theme-floral::after {
+    content: ''; position: absolute; width: 200px; height: 200px;
+    background: radial-gradient(circle at 0 0, rgba(216, 27, 96, 0.2), transparent 70%); z-index: 0;
+}
+.theme-floral::before { top: 0; left: 0; }
+.theme-floral::after { bottom: 0; right: 0; background: radial-gradient(circle at 100% 100%, rgba(216, 27, 96, 0.2), transparent 70%); }
+.theme-floral .doc-header, .theme-floral .doc-body { position: relative; z-index: 1; }
+.theme-floral, .theme-floral .val-cell { color: #422; }
+.theme-floral .shree-ganesh { color: #D81B60; }
+.theme-floral .biodata-title { color: #AD1457; }
+.theme-floral .bio-name { color: #C2185B; font-weight: 800; }
+.theme-floral .bio-section h3 { color: #AD1457; border-bottom: 2px solid #F48FB1; display: inline-block; }
+.theme-floral .label-cell { color: #D81B60; }
+
+/* =========================================
+   THEME: ROYAL BLUE
+   ========================================= */
+.theme-royal-blue {
+    border: 10px solid #1e3a8a;
+    border-radius: 8px;
+    background-color: #f0f9ff;
+}
+.theme-royal-blue, .theme-royal-blue .val-cell { color: #1e293b; }
+.theme-royal-blue .shree-ganesh,
+.theme-royal-blue .biodata-title,
+.theme-royal-blue .bio-name,
+.theme-royal-blue .bio-section h3,
+.theme-royal-blue .label-cell { color: #1e3a8a; }
+.theme-royal-blue .bio-section h3 { border-bottom: 2px solid #1e3a8a; }
+.theme-royal-blue .bio-main-header { border-bottom: 2px solid #bfdbfe; }
+
+/* =========================================
+   THEME: ROSE GOLD
+   ========================================= */
+.theme-rose-gold {
+    border: 4px solid #b76e79;
+    padding: 36px 46px; /* account for inner border */
+    background-color: #fff5f5;
+    outline: 1px solid #b76e79;
+    outline-offset: -8px;
+}
+.theme-rose-gold, .theme-rose-gold .val-cell { color: #4a4a4a; }
+.theme-rose-gold .shree-ganesh,
+.theme-rose-gold .biodata-title,
+.theme-rose-gold .bio-name,
+.theme-rose-gold .bio-section h3,
+.theme-rose-gold .label-cell { color: #b76e79; font-family: 'Playfair Display', serif; }
+.theme-rose-gold .bio-section h3 { border-bottom: 1px solid #e2b4bd; text-align: center; }
+
+/* =========================================
+   THEME: MINIMAL SAFFRON
+   ========================================= */
+.theme-minimal {
+    border: none;
+    border-top: 12px solid #e65100;
+    background-color: #ffffff;
+    box-shadow: inset 0 0 0 1px #f1f5f9;
+}
+.theme-minimal, .theme-minimal .val-cell { color: #334155; font-family: var(--font-body); }
+.theme-minimal .shree-ganesh { color: #e65100; }
+.theme-minimal .biodata-title { color: #1e293b; letter-spacing: 4px; font-weight: 300; }
+.theme-minimal .bio-name { color: #e65100; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+.theme-minimal .bio-section h3 { color: #64748b; border-bottom: 1px solid #e2e8f0; font-size: 14px; letter-spacing: 1px; }
+.theme-minimal .label-cell { color: #475569; font-weight: 500; }
+
+/* =========================================
+   THEME: ORNATE GOLD ROYAL
+   ========================================= */
+.theme-ornate-gold {
+    border: 4px solid #b38b36;
+    background-color: #fdfcf8;
+    padding: 60px 50px;
+    position: relative;
+    outline: 1px solid #b38b36;
+    outline-offset: -12px;
+}
+.theme-ornate-gold::before, .theme-ornate-gold::after {
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M10,10 Q50,10 50,50 Q50,90 90,90' fill='none' stroke='%23b38b36' stroke-width='1.5'/><circle cx='90' cy='90' r='5' fill='none' stroke='%23b38b36'/><circle cx='10' cy='10' r='5' fill='none' stroke='%23b38b36'/></svg>");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.theme-ornate-gold::before { top: 15px; left: 15px; }
+.theme-ornate-gold::after { bottom: 15px; right: 15px; transform: rotate(180deg); }
+
+.theme-ornate-gold, .theme-ornate-gold .val-cell { color: #333; font-size: 16px; }
+.theme-ornate-gold .shree-ganesh { color: #b38b36; font-weight: 700; letter-spacing: 1px; }
+.theme-ornate-gold .biodata-title { color: #b38b36; font-size: 20px; font-weight: 700; margin-bottom: 25px; }
+
+/* Photo floating setup */
+.theme-ornate-gold .doc-body { position: relative; }
+.theme-ornate-gold .bio-main-header { border-bottom: none; margin-bottom: 0; padding-bottom: 0; text-align: left; }
+.theme-ornate-gold .bio-name { display: none; }
+.theme-ornate-gold .bio-photo-container {
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    width: 160px;
+    height: 200px;
+    border-radius: 0; 
+    border: 3px solid #b38b36;
+    padding: 2px;
+}
+.theme-ornate-gold #preview-sections-container .bio-section:first-child { width: 65%; }
+.theme-ornate-gold #preview-sections-container .bio-section:first-child h3 { display: none; }
+.theme-ornate-gold .bio-section h3 { 
+    color: #b38b36; 
+    border-bottom: none; 
+    text-align: center;
+    font-weight: 700;
+    margin-top: 30px;
+    letter-spacing: 1px;
+}
+.theme-ornate-gold .label-cell { color: #555; font-weight: 600; width: 45%; }
