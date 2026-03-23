@@ -403,6 +403,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Export Logic
     document.getElementById('btn-download-pdf').addEventListener('click', () => {
+        const wasHidden = document.querySelector('.app-body').classList.contains('show-edit');
+        if (wasHidden) { document.querySelector('.app-body').classList.remove('show-edit'); document.querySelector('.app-body').classList.add('show-preview'); }
+        
         renderPreview();
         const element = document.getElementById('biodata-preview');
         const opt = {
@@ -414,24 +417,35 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         const wrapper = document.querySelector('.preview-wrapper');
         const origTransform = wrapper.style.transform;
+        const origHeight = wrapper.style.height;
         wrapper.style.transform = 'none';
+        wrapper.style.height = 'auto';
         html2pdf().set(opt).from(element).save().then(() => {
             wrapper.style.transform = origTransform;
+            wrapper.style.height = origHeight;
+            if(wasHidden) { document.querySelector('.app-body').classList.add('show-edit'); document.querySelector('.app-body').classList.remove('show-preview'); }
         });
     });
 
     document.getElementById('btn-download-img').addEventListener('click', () => {
+        const wasHidden = document.querySelector('.app-body').classList.contains('show-edit');
+        if (wasHidden) { document.querySelector('.app-body').classList.remove('show-edit'); document.querySelector('.app-body').classList.add('show-preview'); }
+        
         renderPreview();
         const element = document.getElementById('biodata-preview');
         const wrapper = document.querySelector('.preview-wrapper');
         const origTransform = wrapper.style.transform;
+        const origHeight = wrapper.style.height; // Store original height
         wrapper.style.transform = 'none';
+        wrapper.style.height = 'auto'; // Ensure auto height for full content capture
         html2canvas(element, { scale: 2, useCORS: true, scrollY: 0 }).then(canvas => {
             const link = document.createElement('a');
             link.download = 'biodata.jpg';
             link.href = canvas.toDataURL('image/jpeg', 0.98);
             link.click();
             wrapper.style.transform = origTransform;
+            wrapper.style.height = origHeight; // Restore original height
+            if(wasHidden) { document.querySelector('.app-body').classList.add('show-edit'); document.querySelector('.app-body').classList.remove('show-preview'); }
         });
     });
 
@@ -446,4 +460,46 @@ document.addEventListener('DOMContentLoaded', () => {
     // Boot
     renderEditor();
     renderPreview();
+
+    // Mobile Tabs Behavior
+    const tabEdit = document.getElementById('tab-edit');
+    const tabPreview = document.getElementById('tab-preview');
+    const appBody = document.querySelector('.app-body');
+    if (tabEdit && tabPreview) {
+        appBody.classList.add('show-edit'); // Default to edit screen
+        
+        tabEdit.addEventListener('click', () => {
+            appBody.classList.add('show-edit');
+            appBody.classList.remove('show-preview');
+            tabEdit.classList.add('active');
+            tabPreview.classList.remove('active');
+            window.scrollTo(0, 0);
+        });
+        
+        tabPreview.addEventListener('click', () => {
+            appBody.classList.add('show-preview');
+            appBody.classList.remove('show-edit');
+            tabPreview.classList.add('active');
+            tabEdit.classList.remove('active');
+            window.scrollTo(0, 0);
+            renderPreview(); // Ensure scale is re-calculated properly on show
+        });
+    }
+
+    // Export Security for Mobile: Temporarily force preview visibility
+    const ensurePreviewVisible = () => {
+        if(appBody.classList.contains('show-edit')) {
+            appBody.classList.remove('show-edit');
+            appBody.classList.add('show-preview');
+            return true; // Was hidden
+        }
+        return false;
+    };
+    
+    const restoreVisibility = (wasHidden) => {
+        if(wasHidden) {
+            appBody.classList.remove('show-preview');
+            appBody.classList.add('show-edit');
+        }
+    };
 });
