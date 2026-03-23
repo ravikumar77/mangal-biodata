@@ -44,6 +44,43 @@ a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
 .btn-primary:hover { background-color: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(211, 47, 47, 0.5); }
 .btn-secondary { background-color: white; color: var(--text-main); border: 1px solid var(--border-color); }
 .btn-secondary:hover { background-color: var(--hover-bg); }
+
+/* =========================================
+   RESPONSIVE DESIGN (MOBILE & TABLET)
+   ========================================= */
+@media (max-width: 768px) {
+    /* Navbar styling for mobile */
+    .navbar .container { flex-direction: column; gap: 12px; }
+    .nav-links { flex-wrap: wrap; justify-content: center; gap: 10px; }
+    
+    /* Landing Page overrides */
+    .hero { padding: 60px 0; }
+    .hero-content { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+    .hero-text h1 { font-size: 2.8rem; }
+    .hero-text p { margin-left: auto; margin-right: auto; font-size: 1.1rem; }
+    .hero-actions { justify-content: center; flex-direction: column; gap: 12px; }
+    .hero-actions .btn { width: 100%; justify-content: center; }
+    .features { padding: 60px 0; }
+    .features-grid { grid-template-columns: 1fr; gap: 24px; }
+    .decoration-blob { display: none; } /* Hide heavy blobs on mobile to prevent overflow */
+    
+    /* App Builder overrides */
+    .app-body { height: auto; overflow: visible; flex-direction: column; }
+    .editor-pane { width: 100%; height: auto; border-right: none; border-bottom: 2px solid var(--border-color); overflow: visible; }
+    .preview-pane { width: 100%; height: auto; overflow: visible; padding: 20px 10px; }
+    
+    /* Dynamic Fields adjustments */
+    .dynamic-row { flex-wrap: wrap; gap: 6px; }
+    .dynamic-row .dynamic-label-input { width: 100%; margin-bottom: 4px; max-width: unset; }
+    .dynamic-row .dynamic-value-input { flex: 1; }
+    
+    .theme-selector { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+}
+
+@media (max-width: 480px) {
+    .theme-selector { grid-template-columns: repeat(2, 1fr); }
+    .hero-text h1 { font-size: 2.2rem; }
+}
 .btn-text { background: transparent; color: var(--primary); padding: 6px 12px; }
 .btn-text:hover { background: #fee2e2; }
 .btn-icon { background: transparent; border: none; color: var(--primary); cursor: pointer; padding: 4px; border-radius: 4px; display: inline-flex; align-items: center; justify-content: center; transition: background 0.2s; }
@@ -52,7 +89,7 @@ a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
 .btn-icon-danger:hover { background: #fee2e2; }
 
 /* Navbar */
-.navbar { height: 70px; background-color: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; display: flex; align-items: center; }
+.navbar { min-height: 70px; padding: 12px 0; background-color: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; display: flex; align-items: center; }
 .navbar .container { display: flex; justify-content: space-between; align-items: center; width: 100%; }
 .logo { font-size: 1.5rem; font-weight: 700; display: flex; align-items: center; gap: 8px; color: var(--primary); }
 .nav-links { display: flex; align-items: center; gap: 24px; }
@@ -125,6 +162,11 @@ a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
 .bg-rose-gold { background: linear-gradient(#b76e79 10px, #fff5f5 10px); }
 .bg-minimal { background: linear-gradient(#e2e8f0 10px, white 10px); }
 .bg-ornate-gold { background: linear-gradient(#b38b36 10px, #fffdfa 10px); }
+.bg-emerald { background: linear-gradient(#1b5e20 10px, #f1f8e9 10px); }
+.bg-crimson { background: linear-gradient(#800000 10px, #ffebee 10px); }
+.bg-lavender { background: linear-gradient(#5e35b1 10px, #f3e5f5 10px); }
+.bg-sunset { background: linear-gradient(135deg, #ff9966 0%, #ff5e62 100%); }
+.bg-peacock { background: linear-gradient(#005b96 10px, #e1f5fe 10px); }
 
 /* Dynamic Editor Top controls */
 .editor-top-controls { padding: 24px; background: #fafafa; border-bottom: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 16px; }

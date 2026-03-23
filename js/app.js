@@ -51,7 +51,12 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 'theme-royal-blue', name: 'Royal Blue', bgClass: 'bg-royal-blue' },
         { id: 'theme-rose-gold', name: 'Rose Gold', bgClass: 'bg-rose-gold' },
         { id: 'theme-minimal', name: 'Minimal Saffron', bgClass: 'bg-minimal' },
-        { id: 'theme-ornate-gold', name: 'Ornate Gold Royal', bgClass: 'bg-ornate-gold' }
+        { id: 'theme-ornate-gold', name: 'Ornate Gold Royal', bgClass: 'bg-ornate-gold' },
+        { id: 'theme-emerald', name: 'Emerald Leaf', bgClass: 'bg-emerald' },
+        { id: 'theme-crimson', name: 'Deep Crimson', bgClass: 'bg-crimson' },
+        { id: 'theme-lavender', name: 'Lavender Grace', bgClass: 'bg-lavender' },
+        { id: 'theme-sunset', name: 'Sunset Glow', bgClass: 'bg-sunset' },
+        { id: 'theme-peacock', name: 'Peacock Elegance', bgClass: 'bg-peacock' }
     ];
 
     const religionIcons = [
@@ -70,7 +75,21 @@ document.addEventListener('DOMContentLoaded', () => {
         'theme-royal-blue': '%231e3a8a',
         'theme-rose-gold': '%23b76e79',
         'theme-minimal': '%23e65100',
-        'theme-ornate-gold': '%23b38b36'
+        'theme-ornate-gold': '%23b38b36',
+        'theme-emerald': '%231b5e20',
+        'theme-crimson': '%23800000',
+        'theme-lavender': '%235e35b1',
+        'theme-sunset': '%23ff5e62',
+        'theme-peacock': '%23005b96'
+    };
+
+    const defaultGodTexts = {
+        'om-ganesha': '|| Shree Ganeshay Namah ||',
+        'om': '|| Shree Ganeshay Namah ||',
+        'khanda': '',
+        'crescent': '',
+        'cross': '',
+        'none': ''
     };
 
     const getIconSvg = (iconId, colorHex) => {
@@ -217,6 +236,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Top controls
         document.getElementById('select-god-icon').addEventListener('change', (e) => {
             appState.godIcon = e.target.value;
+            appState.godText = defaultGodTexts[e.target.value];
+            document.getElementById('input-god-text').value = appState.godText;
             renderPreview();
         });
         document.getElementById('input-god-text').addEventListener('input', (e) => {
